@@ -1,1 +1,0 @@
-# jenkinsPipeline

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 2
+  template:  
+    metadata:
+      name: backend
+      labels:
+        app: node-backend
+    spec:
+      containers:
+        - name: node-container-backend
+          image: registry.digitalocean.com/compasso/node-backend:v{{VERSION_VALUE}}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3333
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "10m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          envFrom:
+          - configMapRef:
+              name: backend-configmap
+      imagePullSecrets:
+            - name: digital-ocean
+  selector:
+    matchLabels:
+      app: node-backend
