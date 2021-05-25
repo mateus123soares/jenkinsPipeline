@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: frontend-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  backend:
+    serviceName: svc-frontend
+    servicePort: 80
+  tls:
+  - hosts:
+    - bethehero.ml
+    secretName: prod-tls
+  rules:
+  - host: bethehero.ml
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: svc-frontend
+          servicePort: 80

@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: frontend-configmap
 data:
-  REACT_APP_HOSTAPI: "https://dev.bethehero.ml"
+  REACT_APP_HOSTAPI: "https://dev.bethehero.ml/"
   REACT_APP_PORTAPI: "80"

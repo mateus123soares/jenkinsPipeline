@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-backend
+  labels:
+    app: svc-backend
+spec:
+  ports:
+  - port: 3333
+    targetPort: 3333
+  selector:
+    app: node-backend 

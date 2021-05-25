@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: backend-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  backend:
+    serviceName: svc-backend
+    servicePort: 3333
+  tls:
+  - hosts:
+    - dev.bethehero.ml
+    secretName: api-tls
+  rules:
+  - host: dev.bethehero.ml
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: svc-backend
+          servicePort: 3333
