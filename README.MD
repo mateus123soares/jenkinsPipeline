@@ -1,4 +1,4 @@
-BUILD=#4
+BUILD=#1
 
 ## About The Project
 Repositório dedicado para o desenvolvimento de um pipeline DevOps com deploy usando kubernets

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: frontend
+      labels:
+        app: node-frontend
+    spec:
+      containers:
+        - name: node-container-frontend
+          image: registry.digitalocean.com/compasso/frontend:v{{VERSION_VALUE}}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "10m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          envFrom:
+          - configMapRef:
+              name: frontend-configmap
+      imagePullSecrets:
+            - name: digital-ocean
+  selector:
+    matchLabels:
+      app: node-frontend
