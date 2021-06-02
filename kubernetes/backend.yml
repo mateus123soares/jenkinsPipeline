@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: node-container-backend
-          image: registry.digitalocean.com/compasso/node-backend:v{{VERSION_VALUE}}
+          image: registry.hub.docker.com/mts988/node-backend:v{{VERSION_VALUE}}
           imagePullPolicy: Always
           ports:
             - containerPort: 3333
