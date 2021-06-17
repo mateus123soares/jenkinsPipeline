@@ -2,7 +2,7 @@ stages:
 - name: Build something
   steps:
   - runScriptConfig:
-      shellScript: echo "ois"
+      shellScript: echo "oiss"
 - name: Deploy some workloads
   steps:
   - applyYamlConfig:
