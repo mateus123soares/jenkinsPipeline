@@ -1,10 +1,13 @@
-# example
 stages:
-  - name: Build something
-    steps:
-    - runScriptConfig:
-        shellScript: echo "ois"
-  - name: Deploy some workloads
-    steps:
-    - applyYamlConfig:
-        path: ./kubernetes/backend.yml
+- name: Build something
+  steps:
+  - runScriptConfig:
+      shellScript: echo "ois"
+- name: Deploy some workloads
+  steps:
+  - applyYamlConfig:
+      path: ./kubernetes/backend.yml
+branch:
+  include:
+  - backendProduction
+notification: {}
