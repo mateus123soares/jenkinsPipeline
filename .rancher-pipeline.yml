@@ -5,6 +5,7 @@ stages:
     - runScriptConfig:
         image: busybox
         shellScript: ls
+        shellScript: pwd
   - name: Deploy some workloads
     steps:
     - applyYamlConfig:
