@@ -4,11 +4,11 @@ stages:
     steps:
     - runScriptConfig:
         image: busybox
-        shellScript: date -R
+        shellScript: ls
   - name: Deploy some workloads
     steps:
     - applyYamlConfig:
-        path: ./kubernetes/*.yml
+        path: ./kubernetes/.
 # branch conditions for the pipeline
 branch:
   include: [ master, backendProduction]
