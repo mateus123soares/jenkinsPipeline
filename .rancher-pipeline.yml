@@ -1,13 +1,15 @@
+# example
 stages:
-- name: Build something
-  steps:
-  - runScriptConfig:
-      shellScript: echo "oiss"
-- name: Deploy some workloads
-  steps:
-  - applyYamlConfig:
-      path: ./kubernetes/backend.yml
-branch:
-  include:
-  - backendProduction
-notification: {}
+  - name: Build something
+    steps:
+    - runScriptConfig:
+        image: busybox
+        shellScript: echo ${ALIAS_ENV}
+      envFrom:
+      - sourceName: pipeline
+        sourceKey: 	MATEUS
+        targetKey: ALIAS_ENV
+  - name: Deploy some workloads
+    steps:
+    - applyYamlConfig:
+        path: ./kubernetes/backend.yml
