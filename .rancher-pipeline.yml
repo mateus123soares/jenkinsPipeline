@@ -10,7 +10,3 @@ stages:
     steps:
     - applyYamlConfig:
         path: ./kubernetes/backend.yml
-# branch conditions for the pipeline
-branch:
-  include: [ master, backendProduction]
-  exclude: [ dev ]
