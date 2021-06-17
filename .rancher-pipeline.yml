@@ -4,7 +4,7 @@ stages:
     steps:
     - runScriptConfig:
         image: busybox
-        shellScript: ls
+        shellScript: echo "oi"
         shellScript: pwd
   - name: Deploy some workloads
     steps:
