@@ -13,3 +13,5 @@ stages:
     steps:
     - applyYamlConfig:
         path: ./kubernetes/backend.yml
+      env:
+        NAMESPACE: default
