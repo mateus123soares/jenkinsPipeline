@@ -8,8 +8,7 @@ stages:
   - name: Deploy some workloads
     steps:
     - applyYamlConfig:
-        path: ./kubernetes/backend-configmap.yml
-        path: ./kubernetes/svc-backend.yml
+        path: [./kubernetes/backend-configmap.yml, ./kubernetes/svc-backend.yml]
 # branch conditions for the pipeline
 branch:
   include: [ master, backendProduction]
