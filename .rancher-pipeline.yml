@@ -1,12 +1,14 @@
 # example
 stages:
   - name: Build something
-    # Multiple steps run concurrently
     steps:
     - runScriptConfig:
         image: busybox
         shellScript: date -R
-      # Conditions for steps
+  - name: Deploy some workloads
+    steps:
+    - applyYamlConfig:
+        path: ./kubernetes/
 # branch conditions for the pipeline
 branch:
   include: [ master, backendProduction]
