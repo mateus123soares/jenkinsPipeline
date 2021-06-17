@@ -3,9 +3,7 @@ stages:
   - name: Build something
     steps:
     - runScriptConfig:
-        image: busybox
         shellScript: echo "ois"
-        shellScript: pwd
   - name: Deploy some workloads
     steps:
     - applyYamlConfig:
