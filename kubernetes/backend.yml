@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-deployment
+  name: backend-deployment-v1
 spec:
   replicas: 2
   template:  
@@ -9,10 +9,11 @@ spec:
       name: backend
       labels:
         app: node-backend
+        version: blue
     spec:
       containers:
         - name: node-container-backend
-          image: registry.hub.docker.com/mts988/node-backend:v3
+          image: registry.hub.docker.com/mts988/node-backend:blue
           imagePullPolicy: Always
           ports:
             - containerPort: 3333

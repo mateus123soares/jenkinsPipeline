@@ -4,9 +4,13 @@ metadata:
   name: svc-backend
   labels:
     app: svc-backend
+    version: blue
 spec:
+  type: NodePort
   ports:
   - port: 3333
     targetPort: 3333
+    nodePort: 30001
   selector:
     app: node-backend 
+    version: green
